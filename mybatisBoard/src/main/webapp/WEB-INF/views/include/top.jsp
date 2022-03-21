@@ -4,16 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>∙ main ∙</title>
+<title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="style.css">
 <body>
-<header style="background-image:url('./img/main.jpeg')">
-	<a href="./"><h1>good morning</h1></a>
+<header style="background-image:url('../img/main.jpeg')">
+	<a href="../"><h1>good morning</h1></a>
 </header>
 <nav>
 	<ul>
-		<li><a href="./board/list">∙ Board</a></li>
+		<li><a href="../board/list">∙ Board</a></li>
 		<li><a href="#">∙ Login</a></li>
 		<li><a href="#">∙ Join</a></li>
 	</ul>
