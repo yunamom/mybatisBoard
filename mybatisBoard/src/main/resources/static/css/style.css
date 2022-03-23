@@ -7,7 +7,7 @@ html {
 	background: #e1c9c9;
 }
 body {
-	max-width: 1200px;
+	max-width: 1300px;
 	margin: 0 auto;
 	font-family: gulim;
 	text-align: center;
@@ -73,17 +73,11 @@ div.container {
 	text-decoration: none;
 	color: #595a5a;
 }
-
 .btn:hover {
 	background: none;
 	text-decoration: underline;
 }
 
-.btn:active {
-	-ms-transform: translateY(2px);
-	-webkit-transform: translateY(2px);
-	transform: translateY(2px);
-}
 
 .smallbtn {
 	margin: 0;
@@ -166,6 +160,8 @@ tr[data-url]:hover {
 	cursor: pointer;
 	background-color: rgba(250,250,250,0.2);
 }
-
+iframe {
+	border-radius: 0.8rem;
+}
 
 

@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>∙ 게시판 목록 ∙</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <%@include file="../include/top.jsp" %>
@@ -28,7 +28,7 @@
 		
 		<c:forEach var="board" items="${ boards }">
 		<tr>
-			<td class="title" onClick="location='detail?unq=${ board.unq }' ">${ board.title }</td>
+			<td class="title" data-url="detail?unq=${ board.unq }">${ board.title }</td>
 			<td>${ board.name }</td>
 			<!-- <td><button type="button" class="smallbtn" onclick="location='delete?id=${ department.id }' ">
 			삭 제</button></td> -->
