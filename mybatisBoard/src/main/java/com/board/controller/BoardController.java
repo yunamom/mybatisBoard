@@ -39,6 +39,14 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
+	@GetMapping("detail")
+	public String detail(Model model, @RequestParam("unq") int unq) {
+		Board board = boardMapper.findOne(unq);
+		model.addAttribute("board" , board);
+		return "board/detail";
+	}
+	
+	
 	@RequestMapping("delete")
 	public String delete(Model model, @RequestParam("unq") int unq) {
 		boardMapper.delete(unq);

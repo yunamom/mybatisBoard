@@ -27,8 +27,8 @@
 		</tr>
 		
 		<c:forEach var="board" items="${ boards }">
-		<tr>
-			<td class="title" data-url="detail?unq=${ board.unq }">${ board.title }</td>
+		<tr onClick="location='detail?unq=${ board.unq }'" >
+			<td class="title">${ board.title }</td>
 			<td>${ board.name }</td>
 			<!-- <td><button type="button" class="smallbtn" onclick="location='delete?id=${ department.id }' ">
 			삭 제</button></td> -->

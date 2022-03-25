@@ -45,7 +45,7 @@ section {
 	align-items: center;
 }
 div.container {
-	min-width: 700px;
+	min-width: 800px;
 	margin: 10px auto;
 	overflow: auto;
 }
@@ -159,6 +159,11 @@ table.list select {
 tr[data-url]:hover {
 	cursor: pointer;
 	background-color: rgba(250,250,250,0.2);
+}
+.content {
+	text-align: left; 
+	height: 400px;
+	font-size: 18px;
 }
 iframe {
 	border-radius: 0.8rem;
