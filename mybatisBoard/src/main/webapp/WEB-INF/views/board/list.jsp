@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="my" %>
+<c:url var="R" value="../" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,14 +29,15 @@
 		</tr>
 		
 		<c:forEach var="board" items="${ boards }">
-		<tr onClick="location='detail?unq=${ board.unq }'" >
+		<tr onClick="location='detail?unq=${ board.unq }&${ pagination.queryString }'" >
 			<td class="title">${ board.title }</td>
-			<td>${ board.name }</td>
-			<!-- <td><button type="button" class="smallbtn" onclick="location='delete?id=${ department.id }' ">
-			삭 제</button></td> -->
+			<td>${ board.name }</td>	
 		</tr>
 		</c:forEach>
 	</table>
+	<div class="wrapper">
+	<my:pagination pageSize="${ pagination.sz }" recordCount="${ pagination.recordCount }"
+	queryStringName="pg" /></div>
 </div>
 </div>
 </section>

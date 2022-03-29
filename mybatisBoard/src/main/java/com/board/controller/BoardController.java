@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.board.dto.Board;
 import com.board.mapper.BoardMapper;
+import com.board.model.Pagination;
 
 @Controller
 @RequestMapping("/board")
@@ -20,23 +21,28 @@ public class BoardController {
 	@Autowired BoardMapper boardMapper;
 		
 	@RequestMapping("list")
-	public String list(Model model) {
-		List<Board>boards = boardMapper.findAll();
+	public String list(Model model, Pagination pagination) {
+		List<Board>boards = boardMapper.findAll(pagination);
+		/* 마지막 페이지 번호 */
+		pagination.setRecordCount(boardMapper.count());
 		model.addAttribute("boards" , boards);
 		return "board/list";
 	}
 	
+	
 	@GetMapping("write")
-	public String write(Model model) {
-		Board board = new Board();
-		model.addAttribute("board" , board);
+	public String write(Model model, Pagination pagination) {
+		model.addAttribute("board", new Board());
+		
 		return "board/write";
 	}
 	
 	@PostMapping("write")
-	public String write(Model model, Board board) {
+	public String write(Model model, Board board, Pagination pagination) {
 		boardMapper.insert(board);
-		return "redirect:list";
+		int lastPage = (int)Math.ceil((double)boardMapper.count() / pagination.getSz());
+		pagination.setPg(lastPage);
+		return "redirect:list?"+pagination.getQueryString();
 	}
 	
 	@GetMapping("detail")

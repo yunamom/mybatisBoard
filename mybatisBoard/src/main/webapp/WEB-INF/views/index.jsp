@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,9 @@
 <link rel="stylesheet" href="css/style.css">
 <body>
 <header style="background-image:url('./img/main.jpeg')">
-	<a href="./"><h1>good morning</h1></a>
+	<a style="text-align:right"href="./">
+	<h1>good morning</h1>
+	</a>
 </header>
 <nav>
 	<ul>
@@ -19,7 +22,21 @@
 	</ul>
 </nav>
 <section>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GA1BdZV64G0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	<c:if test="${userId eq null}">
+		<a href="https://kauth.kakao.com/oauth/authorize
+		?client_id=dcbb0a1210c36cd8cf1df0fe041c9951
+		&redirect_uri=https://yunamom.duckdns.org/mybatisBoard/login
+		&response_type=code">
+			<img src="img/kakao_login_medium_narrow.png">
+		</a>
+	</c:if>
+	<c:if test="${userId ne null}">
+		<form name="logout" action="https://yunamom.duckdns.org/mybatisBoard/logout">
+			<input type="submit" value="로그아웃">
+		</form>
+	</c:if>
+	
 </section>
 </body>
 </html>

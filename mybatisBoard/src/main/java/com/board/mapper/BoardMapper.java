@@ -9,12 +9,15 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import com.board.dto.Board;
+import com.board.model.Pagination;
 
 @Mapper
 public interface BoardMapper {
-	
-	@Select("SELECT * FROM board")
-	List<Board> findAll();
+	/* 이 메소드는 장문의 sql 이기때문에 xml 에 구현하겠습니다. */
+	List<Board> findAll(Pagination pagination);
+
+	@Select("SELECT COUNT(*) FROM board")
+	int count();
 	
 	@Select("SELECT * FROM board WHERE unq = #{unq}")
 	Board findOne(int unq);
