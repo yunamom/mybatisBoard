@@ -1,3 +1,3 @@
-# mybatisBoard
+# mybatis 게시판
 
-<img width="1121" alt="Screen Shot 2022-03-21 at 1 17 46 PM" src="https://user-images.githubusercontent.com/91236026/159204933-afb9f213-41d9-4fe1-9220-b0e0dca6e656.png">
+<img width="600" alt="Screen Shot 2022-03-30 at 9 29 06 AM" src="https://user-images.githubusercontent.com/91236026/160727555-7036236b-a745-4fef-a427-c08500fc3d1b.png">
