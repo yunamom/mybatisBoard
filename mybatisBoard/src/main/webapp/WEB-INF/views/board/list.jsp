@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>∙ 게시판 목록 ∙</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="${R}css/style.css">
 </head>
 <body>
 <%@include file="../include/top.jsp" %>
@@ -16,7 +16,7 @@
 <div class="wrapper">
 <div class="container">
 	<h1></h1>
-	<div class="left"><div class="box">전체 글(${ total })</div></div>
+	<div class="left"><div class="box">전체 글(${ count })</div></div>
 	<div class="right"><a href="write" class="btn">write</a></div>
 	<table class="list">
 	<colgroup>

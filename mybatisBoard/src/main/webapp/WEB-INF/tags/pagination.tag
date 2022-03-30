@@ -42,7 +42,10 @@ if(currentPage > pageCount) currentPage = pageCount;
 int base = ((currentPage - 1) / 5) * 5;
 
 ArrayList<Page> pages = new ArrayList<Page>();
-if(base > 0) pages.add(new Page(base, "&It;"));
+
+/* 이전 */
+if(base > 0) 
+	pages.add(new Page(base, "&lt;"));
 
 for(int i=1; i<=5; i++){
 	int n = base + i;
@@ -50,6 +53,7 @@ for(int i=1; i<=5; i++){
 	pages.add(new Page(n, String.valueOf(n)));
 }
 int n = base + 6;
+/* 다음 */
 if (n <= pageCount)
 	pages.add(new Page(n, "&gt;"));
 %>

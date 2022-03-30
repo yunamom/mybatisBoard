@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.board.dto.Board;
 import com.board.model.Pagination;
@@ -19,8 +20,16 @@ public interface BoardMapper {
 	@Select("SELECT COUNT(*) FROM board")
 	int count();
 	
-	@Select("SELECT * FROM board WHERE unq = #{unq}")
+	@Select("SELECT "
+		  + "title,"
+		  + "content,"
+	      + "name,"
+	      + "rdate,"
+	      + "hits "
+	      + "FROM board WHERE unq = #{unq}")
 	Board findOne(int unq);
+	
+	public int updatehits(int unq);
 	
 	@Insert("INSERT board (title, content, name, hits, rdate) "
 	      + "VALUES (#{title}, #{content}, #{name}, 0, sysdate())")

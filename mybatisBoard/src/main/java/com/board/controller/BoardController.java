@@ -25,33 +25,34 @@ public class BoardController {
 		List<Board>boards = boardMapper.findAll(pagination);
 		/* 마지막 페이지 번호 */
 		pagination.setRecordCount(boardMapper.count());
+		/* 전체 게시글 갯수 */
+		model.addAttribute("total" , boardMapper.count());
+		/* 한페이지 게시물 불러오기 */
 		model.addAttribute("boards" , boards);
 		return "board/list";
 	}
 	
-	
 	@GetMapping("write")
 	public String write(Model model, Pagination pagination) {
-		model.addAttribute("board", new Board());
-		
+		model.addAttribute("board", new Board());	
 		return "board/write";
 	}
 	
 	@PostMapping("write")
 	public String write(Model model, Board board, Pagination pagination) {
 		boardMapper.insert(board);
-		int lastPage = (int)Math.ceil((double)boardMapper.count() / pagination.getSz());
-		pagination.setPg(lastPage);
-		return "redirect:list?"+pagination.getQueryString();
+		return "redirect:list";
 	}
 	
 	@GetMapping("detail")
-	public String detail(Model model, @RequestParam("unq") int unq) {
+	public String detail(Model model, @RequestParam("unq") int unq) {	
+		/* 조회수 증가 */
+		boardMapper.updatehits(unq);	
+		/* 게시글 불러오기 */
 		Board board = boardMapper.findOne(unq);
 		model.addAttribute("board" , board);
 		return "board/detail";
 	}
-	
 	
 	@RequestMapping("delete")
 	public String delete(Model model, @RequestParam("unq") int unq) {

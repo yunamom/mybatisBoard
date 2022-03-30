@@ -6,8 +6,11 @@
 	<select id="findAll" resultType="com.board.dto.Board">
 		<bind name="start" value="(pg - 1)*sz" />
 		SELECT * FROM board
-		ORDER BY unq
+		ORDER BY unq DESC
 		LIMIT #{start}, #{sz}
 	</select>
-
+	
+	<update id="updatehits" >
+		UPDATE board SET hits = hits+1 WHERE unq = #{unq}
+	</update>
 </mapper>

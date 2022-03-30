@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 
 </head>
-<body onload='document.frm.title.focus()'>
+<body>
 <%@include file="../include/top.jsp" %>
 <section>
 <div class="wrapper">
@@ -29,8 +29,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" class="content" valign="top">
-				${ board.content }
+				<td colspan="2" class="content" valign="top">		
+				<pre>${board.content}</pre>
 				</td>
 			</tr>
 			<tr>
